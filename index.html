@@ -1,0 +1,325 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Um cantinho para você ♡</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="decor decor-one">♡</div>
+    <div class="decor decor-two">✿</div>
+    <div class="decor decor-three">♡</div>
+    <div class="decor decor-four">✧</div>
+
+    <main class="container">
+
+        <div class="top-label">
+            <span class="tiny-heart">♥</span>
+            PRA VOCÊ!
+            <span class="tiny-heart">♥</span>
+        </div>
+
+        <!-- TELA INICIAL -->
+        <section class="screen active" id="home">
+
+            <div class="flower-illustration">
+                <span class="flower">🌷</span>
+                <span class="flower flower-middle">♡</span>
+                <span class="flower">🌷</span>
+            </div>
+
+            <p class="eyebrow">OLÁ, BENZITO!</p>
+
+            <h1>
+                fiz isso aqui<br>
+                <span>pra você.</span>
+            </h1>
+
+            <p class="description">
+               A forma mais nerd que achei pra encher teu saco e tentar fazer você me perdoar. <br> Não me entenda mal por te chamar de "benzito", ok? KKKK
+            </p>
+
+            <button class="main-button" onclick="goTo('apology')">
+                tá, quero ver! ♡
+                <span>→</span>
+            </button>
+
+            <p class="small-note">
+                feito com carinho, especialmente pra você.
+            </p>
+
+        </section>
+
+
+        <!-- PEDIDO DE DESCULPAS -->
+        <section class="screen" id="apology">
+
+            <div class="section-icon">💌</div>
+
+            <p class="eyebrow">primeiro, uma coisa importante</p>
+
+            <h2>me desculpa?</h2>
+
+            <div class="letter-card">
+
+                <p>
+                    Eu sei que fui grossa com você e falei coisas
+                    que não deveria. Deixei meu ciúme falar mais
+                    alto, mesmo sabendo que não tinha motivo
+                    pra agir daquele jeito.
+                </p>
+
+                <p>
+                    Você não merecia receber aquele tratamento,
+                    e eu não quero usar o que senti como desculpa
+                    pro que fiz.
+                </p>
+
+                <p>
+                    <strong>Eu errei, reconheço isso e sinto muuiito.</strong>
+                </p>
+
+                <p>
+                    Não espero que você fique bem de uma hora
+                    pra outra só porque pedi desculpas.
+                    Só queria que soubesse que me arrependo
+                    de ter te chateado. ♡ <br> E sei que já pedi desculpas mais cedo, mas queria reforçar que não quero deixar as coisas estranhas entre nós por causa de uma mancada minha.
+                </p>
+
+            </div>
+
+            <button class="main-button" onclick="goTo('memories')">
+                posso te mostrar mais uma coisa?
+                <span>→</span>
+            </button>
+
+            <button class="text-button" onclick="goTo('home')">
+                ← voltar
+            </button>
+
+        </section>
+
+
+        <!-- CARTÕES INTERATIVOS -->
+        <section class="screen" id="memories">
+
+            <div class="section-icon">🎀</div>
+
+            <p class="eyebrow">um pequeno joguinho</p>
+
+            <h2>abre com carinho.</h2>
+
+            <p class="description">
+                Escolhe os cartões e descobre
+                o que tem guardado em cada um.
+            </p>
+
+            <div class="cards-grid">
+
+                <button class="message-card" onclick="revealCard(0)">
+                    <span class="card-decoration">♡</span>
+                    <span class="card-number">01</span>
+                    <span class="card-title">uma verdade</span>
+                    <span class="card-hint">clica aqui!</span>
+                </button>
+
+                <button class="message-card" onclick="revealCard(1)">
+                    <span class="card-decoration">🌷</span>
+                    <span class="card-number">02</span>
+                    <span class="card-title">sobre nós</span>
+                    <span class="card-hint">clica aqui!</span>
+                </button>
+
+                <button class="message-card" onclick="revealCard(2)">
+                    <span class="card-decoration">✨</span>
+                    <span class="card-number">03</span>
+                    <span class="card-title">um desejo</span>
+                    <span class="card-hint">clica aqui!</span>
+                </button>
+
+            </div>
+
+            <p class="card-progress" id="cardProgress">
+                0 de 3 cartõezinhos descobertos ♡
+            </p>
+
+            <button
+                class="main-button hidden"
+                id="continueButton"
+                onclick="goTo('friendship')"
+            >
+                tem mais uma coisinha...
+                <span>→</span>
+            </button>
+
+            <button class="text-button" onclick="goTo('apology')">
+                ← voltar
+            </button>
+
+        </section>
+
+
+        <!-- MODAL DOS CARTÕES -->
+        <div class="modal" id="cardModal" aria-hidden="true">
+
+            <div
+                class="modal-content"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="modalTitle"
+            >
+
+                <button
+                    class="close-modal"
+                    onclick="closeModal()"
+                    aria-label="Fechar mensagem"
+                >
+                    ×
+                </button>
+
+                <div class="modal-flower" id="modalEmoji">♡</div>
+
+                <p class="eyebrow">um recadinho pra você</p>
+
+                <h3 id="modalTitle">uma verdade</h3>
+
+                <p id="modalMessage" class="modal-message"></p>
+
+                <button class="main-button" onclick="closeModal()">
+                    guardei aqui ♡
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- SOBRE A AMIZADE -->
+        <section class="screen" id="friendship">
+
+            <div class="friendship-art">
+                <span>🌷</span>
+                <span class="friendship-heart">♡</span>
+                <span>🎀</span>
+            </div>
+
+            <p class="eyebrow">e sobre uma coisa que importa muito</p>
+
+            <h2>o nosso autismo KKKKK .</h2>
+
+            <div class="friendship-card">
+
+                <p>
+                    Eu amo você, mas amo muito também
+                    <strong>a nossa amizade.</strong>
+                </p>
+
+                <p>
+                    Amo a nossa conexão, as nossas conversas,
+                    as nossas brincadeiras e a liberdade
+                    de poder ser eu mesma com você.
+                </p>
+
+                <p>
+                    Sinto falta de conversar com você
+                    normalmente, de verdade.
+                </p>
+
+                <p>
+                    Não quero que uma mancada minha
+                    deixe as coisas estranhas, novamente, entre a gente.
+                </p>
+
+                <p class="highlight">
+                    Você é muito especial pra mim. ♡
+                </p>
+
+            </div>
+
+            <button class="main-button" onclick="goTo('final')">
+                última coisinha, prometo! ♡
+                <span>→</span>
+            </button>
+
+            <button class="text-button" onclick="goTo('memories')">
+                ← voltar
+            </button>
+
+        </section>
+
+
+        <!-- FINAL -->
+        <section class="screen" id="final">
+
+            <div class="final-decoration">
+                <span>🌷</span>
+                <span>♡</span>
+                <span>🌷</span>
+            </div>
+
+            <p class="eyebrow">fim do nosso mini passeio</p>
+
+            <h1 class="final-title">
+                gosto de ter<br>
+                <span>você na minha vida.</span>
+            </h1>
+
+            <div class="final-card">
+
+                <p>
+                    Eu te amo, viu?
+                    E não é só porque você é especial pra mim (você sabe o que quero dizer com isso),
+                    mas porque a nossa amizade também é.
+                </p>
+
+                <p>
+                    Não precisa responder nada,
+                    nem fingir que já passou.
+                </p>
+
+                <p>
+                    Só queria deixar registrado que
+                    você merece carinho até quando
+                    as coisas não estão tão legais entre nós.
+                </p>
+
+                <p class="signature">
+                    com carinho,<br>
+                    <strong>a melhor ex do ano. ♡</strong>
+                    Desculpaaa eu não poderia deixar de brincar com issoooo kkkkk
+                </p>
+
+            </div>
+
+            <button class="restart-button" onclick="restartSite()">
+                rever tudinho ↺
+            </button>
+
+            <p class="small-note">
+                feito especialmente pra você. ♡
+            </p>
+
+        </section>
+
+        <footer>
+            <span>feito com amor</span>
+            <span>♡</span>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+```
